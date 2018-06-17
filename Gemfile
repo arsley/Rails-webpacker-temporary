@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'webpacker', '~> 3.5'
+gem 'react-rails'
 
 gem 'slim'
 gem 'html2slim'
