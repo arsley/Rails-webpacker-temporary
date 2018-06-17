@@ -8,7 +8,7 @@ const GoodBye = props => {
 
 export default class Outputer extends React.Component {
   outputNumberDiv(i) {
-    return <div className="out-{i}">Prop is {i}!</div>
+    return <div className={'out-' + i}>Prop is {i}!</div>
   }
 
   render() {
