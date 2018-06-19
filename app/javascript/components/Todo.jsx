@@ -40,7 +40,14 @@ export default class Todo extends React.Component {
   handleSubmit(event) {
     axios.post('/todos', {
       todo: { content: this.state.newTodo }
+    })
+    .then(function(response) {
+      console.log('Created.');
+    })
+    .catch(function(error) {
+      console.log('Bad request.');
     });
+
     this.setState({
       todos: [{ content: this.state.newTodo, finish: false }].concat(this.state.todos),
       newTodo: ''
