@@ -10,19 +10,55 @@ function TodoItem(props) {
 }
 
 function TodoList(props) {
-  const todos = JSON.parse(props.todos);
-  const list  = todos.map((todo, i) =>
+  const list = props.todos.map((todo, i) =>
     <TodoItem key={i} content={todo.content} />
   );
   return list;
 }
 
+function CSRFTokenVerify(props) {
+  axios.defaults.headers.common['X-CSRF-Token'] = props.token;
+  return <input type="hidden" name="authenticity_token" value={props.token} readOnly={true} />
+}
 
 export default class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: JSON.parse(props.todos),
+      newTodo: ''
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ newTodo: event.target.value });
+  }
+
+  handleSubmit(event) {
+    axios.post('/todos', {
+      todo: { content: this.state.newTodo }
+    });
+    this.setState({
+      todos: [{ content: this.state.newTodo, finish: false }].concat(this.state.todos),
+      newTodo: ''
+    });
+  }
+
   render() {
     return (
       <div className="todo-wrapper">
-        <TodoList todos={this.props.todos} />
+        <div className="todo-form">
+          <CSRFTokenVerify token={this.props.csrf_token} />
+          <label>
+            Todo:
+            <input type="text" value={this.state.newTodo} onChange={this.handleChange} />
+          </label>
+          <button onClick={this.handleSubmit} className="button">Add!</button>
+        </div>
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
