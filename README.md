@@ -28,6 +28,8 @@
   - Formを作るのに大変参考にした
 - [よく忘れるRailsのコントローラーでのrenderメソッドのレシピ集](http://ruby-rails.hatenadiary.com/entry/20141125/1416918957#render-ctrl-only-status-code)
   - `todos#create todos#update todo#destory`のアクションのレスポンスとして
+- [Rails5でassetsをRailsに配信させる](https://qiita.com/littlekbt/items/2cce848313b1f082e224)
+  - production環境でのassets読み込みがうまくいかなかったため
 
 ## Run
 
