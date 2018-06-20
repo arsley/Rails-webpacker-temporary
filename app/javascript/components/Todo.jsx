@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 function TodoItem(props) {
   return (
     <div className="row todo-item">
-      <p className="column column-80 todo-item-content tm">{props.content}</p>
-      <p className="column column-20 todo-item-finish tm">Finish!</p>
+      <p className="column todo-item-content tm">{props.content}</p>
+      <button className="column column-20 button button-outline tm">Finish!</button>
     </div>
   );
 }
