@@ -5,16 +5,14 @@ function TodoItem(props) {
   return (
     <div className="row todo-item">
       <p className="column todo-item-content tm">{props.content}</p>
-      <button className="column column-20 button button-outline tm">Finish!</button>
+      <button
+        className="column column-20 button button-outline todo-item-finish tm"
+        data-id={props.todoId}
+      >
+        Finish!
+      </button>
     </div>
   );
-}
-
-function TodoList(props) {
-  const list = props.todos.map((todo, i) =>
-    <TodoItem key={i} content={todo.content} />
-  );
-  return list;
 }
 
 function CSRFTokenVerify(props) {
@@ -30,7 +28,7 @@ export default class Todo extends React.Component {
       newTodo: ''
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -38,7 +36,7 @@ export default class Todo extends React.Component {
     this.setState({ newTodo: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleCreate(event) {
     axios.post('/todos', {
       todo: { content: this.state.newTodo }
     })
@@ -56,6 +54,10 @@ export default class Todo extends React.Component {
   }
 
   render() {
+    const lists = this.state.todos.map((todo, i) =>
+      <TodoItem key={i} content={todo.content} todoId={todo.id} />
+    );
+
     return (
       <div className="todo-wrapper">
         <div className="todo-form">
@@ -64,10 +66,10 @@ export default class Todo extends React.Component {
             Todo:
             <input type="text" value={this.state.newTodo} onChange={this.handleChange} />
           </label>
-          <button onClick={this.handleSubmit} className="button">Add!</button>
+          <button onClick={this.handleCreate} className="button">Add!</button>
         </div>
         <hr />
-        <TodoList todos={this.state.todos} />
+        {lists}
       </div>
     );
   }
