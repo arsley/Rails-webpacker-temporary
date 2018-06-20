@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 
 function TodoItem(props) {
   return (
-    <div className="todoitem">
-      <p className="todoitem-content">{props.content}</p>
+    <div className="row todo-item">
+      <p className="column column-80 todo-item-content tm">{props.content}</p>
+      <p className="column column-20 todo-item-finish tm">Finish!</p>
     </div>
   );
 }
@@ -65,6 +66,7 @@ export default class Todo extends React.Component {
           </label>
           <button onClick={this.handleSubmit} className="button">Add!</button>
         </div>
+        <hr />
         <TodoList todos={this.state.todos} />
       </div>
     );
