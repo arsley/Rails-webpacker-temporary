@@ -15,7 +15,10 @@ class TodosController < ApplicationController
   def update
   end
 
-  def destory
+  def destroy
+    todo = Todo.find(params[:id])
+    todo.delete
+    head :ok, location: root_path
   end
 
   private

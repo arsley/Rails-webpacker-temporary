@@ -7,7 +7,7 @@ function TodoItem(props) {
       <p className="column todo-item-content tm">{props.content}</p>
       <button
         className="column column-20 button button-outline todo-item-finish tm"
-        data-id={props.todoId}
+        onClick={props.clickHandler}
       >
         Finish!
       </button>
@@ -36,14 +36,14 @@ export default class Todo extends React.Component {
     this.setState({ newTodo: event.target.value });
   }
 
-  handleCreate(event) {
+  handleCreate() {
     axios.post('/todos', {
       todo: { content: this.state.newTodo }
     })
-    .then(function(response) {
+    .then(function(_response) {
       console.log('Created.');
     })
-    .catch(function(error) {
+    .catch(function(_error) {
       console.log('Bad request.');
     });
 
@@ -53,9 +53,34 @@ export default class Todo extends React.Component {
     });
   }
 
+  /**
+   * [handleDestroy]
+   * @param  {[Integer]} todoId      [todo's id which is Database's id; to delete data from Database]
+   * @param  {[Integer]} statesIndex [todo's index which is this.state.todos' index; to delete todo from Todo lists' page]
+   * @return nothing
+   */
+  handleDestroy(todoId, statesIndex) {
+    const deletedTodos = this.state.todos;
+
+    deletedTodos.splice(statesIndex, 1);
+    this.setState(deletedTodos);
+
+    axios.delete(`/todos/${todoId}`)
+    .then(function(_response) {
+      console.log('Deleted.');
+    })
+    .catch(function(_error) {
+      console.log('Somethings wrong.');
+    });
+  }
+
   render() {
-    const lists = this.state.todos.map((todo, i) =>
-      <TodoItem key={i} content={todo.content} todoId={todo.id} />
+    const lists = this.state.todos.map((todo, index) =>
+      <TodoItem
+        key={index}
+        content={todo.content}
+        clickHandler={() => this.handleDestroy(todo.id, index)}
+      />
     );
 
     return (
