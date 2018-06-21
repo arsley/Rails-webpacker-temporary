@@ -29,7 +29,18 @@
 - [よく忘れるRailsのコントローラーでのrenderメソッドのレシピ集](http://ruby-rails.hatenadiary.com/entry/20141125/1416918957#render-ctrl-only-status-code)
   - `todos#create todos#update todo#destory`のアクションのレスポンスとして
 - [Rails5でassetsをRailsに配信させる](https://qiita.com/littlekbt/items/2cce848313b1f082e224)
+- [App cannot serve pack files in production](https://github.com/rails/webpacker/issues/1249)
   - production環境でのassets読み込みがうまくいかなかったため
+- [React js onClick can't pass value to method](https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method)
+  - `handleDestory`の受け渡しに
+- [bind(this)とは](https://ja.stackoverflow.com/questions/8482/bindthisとは)
+- [Function.prototype.bind()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+  - `bind`の真理
+- [React removing an element when onClick](https://stackoverflow.com/questions/44988996/react-removing-an-element-when-onclick)
+- [Array.prototype.splice()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+  - `state.todos`から要素の削除を行う
+- [teamcapybara/Capybara - github](https://github.com/teamcapybara/capybara)
+  - `integration_test`の作成に参考
 
 ## Run
 
