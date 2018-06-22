@@ -1,9 +1,8 @@
-# Rails webpacker temporary
+# Todo-mock
 
 ## About
 
-今後自由に拡張できるお試し用途として作成。
-テストに関してはもう少し追加が必要かも？
+TodoList アプリのモックアップです。
 
 ## Specific
 
@@ -12,6 +11,40 @@
 - yarn
 - Jest
 - webpack
+
+## Run
+
+## Setup
+
+```
+# set database's schema
+$ bin/rails db:migrate
+
+# sample data initialize to DB(not required)
+$ bin/rails db:seed
+```
+
+### Application(production)
+
+```
+# assets initialization
+$ bin/webpack
+
+# server (on localhost:3000)
+$ bin/rails s
+```
+
+### Rails' test
+
+```
+$ bin/rails t
+```
+
+### JavaScript's test(now empty)
+
+```
+yarn test
+```
 
 ## References
 
@@ -42,23 +75,3 @@
 - [teamcapybara/Capybara - github](https://github.com/teamcapybara/capybara)
 - [Testing That Elements Do Not Exist With Capybara](https://adamdelong.com/testing-elements-not-exist-capybara/)
   - `integration_test`の作成に参考
-
-## Run
-
-### Application
-
-```
-$ rails s
-```
-
-### Webpack's Complation
-
-```
-$ bin/webpacker
-```
-
-### JavaScript's test
-
-```
-yarn test
-```
