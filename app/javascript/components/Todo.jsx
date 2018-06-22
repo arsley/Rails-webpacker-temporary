@@ -40,16 +40,20 @@ export default class Todo extends React.Component {
     axios.post('/todos', {
       todo: { content: this.state.newTodo }
     })
-    .then(function(_response) {
+    // BE CAREFUL: 'this' points Todo component (not receiver 'axios')
+    .then((response) => {
       console.log('Created.');
+
+      this.setState({
+        todos:  [{ id: response.data.id,
+                  content: this.state.newTodo,
+                  finish: false
+                }].concat(this.state.todos),
+        newTodo: ''
+      });
     })
     .catch(function(_error) {
       console.log('Bad request.');
-    });
-
-    this.setState({
-      todos: [{ content: this.state.newTodo, finish: false }].concat(this.state.todos),
-      newTodo: ''
     });
   }
 

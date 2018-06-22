@@ -6,7 +6,7 @@ class TodosController < ApplicationController
   def create
     todo = Todo.new(todo_params)
     if todo.save
-      head :created, location: root_path
+      render json: Todo.last, status: :created, location: root_path
     else
       head :bad_request, location: root_path
     end

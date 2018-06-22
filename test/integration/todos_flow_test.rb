@@ -13,6 +13,6 @@ class TodosFlowTest < ApplicationSystemTestCase
 
     click_button 'Finish!'
     visit root_url
-    assert_not find('.todo-form')
+    assert_not page.has_selector?('.todo-item')
   end
 end
