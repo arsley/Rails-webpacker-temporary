@@ -80,13 +80,17 @@ export default class Todo extends React.Component {
   }
 
   render() {
-    const lists = this.state.todos.map((todo, index) =>
-      <TodoItem
-        key={index}
-        content={todo.content}
-        clickHandler={() => this.handleDestroy(todo.id, index)}
-      />
-    );
+    const lists = this.state.todos.map((todo, index) => {
+      if (!todo.finish) {
+        return (
+          <TodoItem
+            key={index}
+            content={todo.content}
+            clickHandler={() => this.handleDestroy(todo.id, index)}
+          />
+        );
+      }
+    });
 
     return (
       <div className="todo-wrapper">
