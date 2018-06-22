@@ -45,7 +45,8 @@ export default class Todo extends React.Component {
       console.log('Created.');
 
       this.setState({
-        todos:  [{ id: response.data.id,
+        todos:  [{
+                  id: response.data.id,
                   content: this.state.newTodo,
                   finish: false
                 }].concat(this.state.todos),

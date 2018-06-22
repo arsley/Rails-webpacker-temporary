@@ -13,6 +13,6 @@ class TodosFlowTest < ApplicationSystemTestCase
 
     click_button 'Finish!'
     visit root_url
-    assert_not page.has_selector?('.todo-item')
+    assert page.has_no_selector?('.todo-item')
   end
 end
