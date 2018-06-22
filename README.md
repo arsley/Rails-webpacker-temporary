@@ -40,6 +40,7 @@
 - [Array.prototype.splice()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
   - `state.todos`から要素の削除を行う
 - [teamcapybara/Capybara - github](https://github.com/teamcapybara/capybara)
+- [Testing That Elements Do Not Exist With Capybara](https://adamdelong.com/testing-elements-not-exist-capybara/)
   - `integration_test`の作成に参考
 
 ## Run
