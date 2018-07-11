@@ -1,3 +1,6 @@
+/*eslint-env node*/
+/*global axios */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 

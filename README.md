@@ -4,6 +4,12 @@
 
 TodoList アプリのモックアップです。
 
+## Requirement
+
+- sqlite3
+- node (9.x)
+- yarn
+
 ## Specific
 
 - Rails
@@ -75,3 +81,7 @@ yarn test
 - [teamcapybara/Capybara - github](https://github.com/teamcapybara/capybara)
 - [Testing That Elements Do Not Exist With Capybara](https://adamdelong.com/testing-elements-not-exist-capybara/)
   - `integration_test`の作成に参考
+- [incompatible with armv7l](https://github.com/Shopify/bootsnap/issues/67)
+- [【Ruby on Rails】環境変数エラー](https://blog.naichilab.com/entry/2015/12/05/232651)
+- [Webpack + Babel: Couldn't find preset “es2015” relative to directory](https://stackoverflow.com/questions/40188578/webpack-babel-couldnt-find-preset-es2015-relative-to-directory)
+  - raspberry piでproduction運用のための設定
