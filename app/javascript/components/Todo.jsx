@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Begin Declaration component TodoItem
 function TodoItem(props) {
   return (
     <div className="row todo-item">
@@ -17,6 +18,7 @@ function TodoItem(props) {
     </div>
   );
 }
+// End dec.
 
 function CSRFTokenVerify(props) {
   axios.defaults.headers.common['X-CSRF-Token'] = props.token;
